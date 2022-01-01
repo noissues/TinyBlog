@@ -47,6 +47,17 @@ export default {
         });
     },
 
+    getBlogByTitle(title) {
+      BlogService.getBlogByTitle(title)
+          .then((response) => {
+            this.blogs = response.data.map(this.getDisplayBlog);
+            console.log(response.data);
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+    },
+
     editBlog(id) {
       this.$router.push({ path: `/edit/${id}` });
     },
@@ -67,7 +78,11 @@ export default {
     },
   },
   mounted() {
-    this.getAllBlogs();
+    if (this.$route.params.title) {
+      this.getBlogByTitle(this.$route.params.title);
+    } else {
+      this.getAllBlogs();
+    }
   },
 };
 </script>

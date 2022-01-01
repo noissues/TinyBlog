@@ -11,6 +11,11 @@ class BlogService {
         return http.get(`/blog/${id}`);
     }
 
+    // 获取标题为 title 的博客
+    getBlogByTitle(title) {
+        return http.get(`/blog?title=${title}`);
+    }
+
     // 创建一篇博客
     addBlog(data) {
         return http.post("/blog", data);

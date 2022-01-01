@@ -14,6 +14,11 @@ export default new Router({
       component: () => import("./components/BlogList")
     },
     {
+      path: "/search/:title",
+      name: "search",
+      component: () => import("./components/BlogList")
+    },
+    {
       path: "/edit/:id",
       name: "edit",
       component: () => import("./components/EditBlog")

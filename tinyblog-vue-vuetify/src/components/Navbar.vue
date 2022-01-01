@@ -50,9 +50,13 @@ export default {
 
   methods: {
     searchByParam() {
+      if (!this.searchParam) 
+        return;
+      // http://127.0.0.1:8081/blogs/search/{this.searchParam}
+      this.$router.push({ name: "search", params: { title: this.searchParam } });
     },
     goToGitHub() {
-        window.location.href ="https://gitee.com/noissues/tinyblog-vue-vuetify.git";
+      window.location.href ="https://gitee.com/noissues/tinyblog-vue-vuetify.git";
     },
   },
 };
